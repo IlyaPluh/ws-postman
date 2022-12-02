@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "53f45dab-566e-4a05-beee-e3e101bb681f",
+		"name": "Web service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20997341"
+	},
+	"item": [
+		{
+			"name": "WS1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Проверить всё ли нормально в работе связки вебсервисов.",
+							"",
+							"// Есть 2 ws.",
+							"// WS_1: http://162.55.220.72:5011/user",
+							"// WS_2: http://23.88.52.139:5012/users_team",
+							"",
+							"",
+							"// 2. WS_1 получает запрос от клиента. ",
+							"// POST. ",
+							"// Body: json {\"user_id\":1}",
+							"// Вставьте свой уникальный user_id.",
+							"",
+							"// 3. После получения запроса ws_1 отправляет запрос на ws_2",
+							"// POST. ",
+							"// Body: json {'type': 'padawan', 'spec': 'QA', 'ex': '1', 'current_user': {'uid': YOUR_ID, 'uip:': ‘YOUR_IP’}}",
+							"",
+							"// 4. WS_2 принимает запрос от ws_1, дополняет полученную Json дополнительной информацией.",
+							"// 5. WS_2 отправляет ответ на ws_1 в виде ",
+							"// {",
+							"//     \"user_divices_data\": {",
+							"//         \"comp\": {",
+							"//             \"model\": \"Macbook\",",
+							"//             \"monitor_diagonal\": 16,",
+							"//             \"ram\": 32,",
+							"//             \"resolution\": [",
+							"//                 \"Liquid Retina XDR\",",
+							"//                 \"3456x2234\"",
+							"//             ],",
+							"//             \"ssd\": 1000,",
+							"//             \"year\": 2021",
+							"//         },",
+							"//         \"mobile\": {",
+							"//             \"cpu\": \"ARM, SnapDragon 840\",",
+							"//             \"model\": \"Samsung a52\",",
+							"//             \"os\": \"Android\",",
+							"//             \"ram\": 6",
+							"//         }",
+							"//     },",
+							"//     \"user_static_data\": {",
+							"//         \"current_user\": {",
+							"//             \"uid\": 1,",
+							"//             \"uip:\": \"127.0.0.1\"",
+							"//         },",
+							"//         \"ex\": \"1\",",
+							"//         \"spec\": \"QA\",",
+							"//         \"type\": \"padawan\"",
+							"//     }",
+							"// }",
+							"// 6. Ws_1 перенаправляет запрос клиенту"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":1}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5011/user",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5011",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WS2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"type\": \"padawan\", \n\"spec\": \"QA\", \n\"ex\": \"1\", \n\"current_user\": {\n    \"uid\": \"1\",\n    \"uip:\": \"0\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://23.88.52.139:5012/users_team",
+					"protocol": "http",
+					"host": [
+						"23",
+						"88",
+						"52",
+						"139"
+					],
+					"port": "5012",
+					"path": [
+						"users_team"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
