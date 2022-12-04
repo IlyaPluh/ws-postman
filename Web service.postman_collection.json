@@ -7,125 +7,260 @@
 	},
 	"item": [
 		{
-			"name": "WS1",
-			"event": [
+			"name": "HW1",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"// 1. Проверить всё ли нормально в работе связки вебсервисов.",
-							"",
-							"// Есть 2 ws.",
-							"// WS_1: http://162.55.220.72:5011/user",
-							"// WS_2: http://23.88.52.139:5012/users_team",
-							"",
-							"",
-							"// 2. WS_1 получает запрос от клиента. ",
-							"// POST. ",
-							"// Body: json {\"user_id\":1}",
-							"// Вставьте свой уникальный user_id.",
-							"",
-							"// 3. После получения запроса ws_1 отправляет запрос на ws_2",
-							"// POST. ",
-							"// Body: json {'type': 'padawan', 'spec': 'QA', 'ex': '1', 'current_user': {'uid': YOUR_ID, 'uip:': ‘YOUR_IP’}}",
-							"",
-							"// 4. WS_2 принимает запрос от ws_1, дополняет полученную Json дополнительной информацией.",
-							"// 5. WS_2 отправляет ответ на ws_1 в виде ",
-							"// {",
-							"//     \"user_divices_data\": {",
-							"//         \"comp\": {",
-							"//             \"model\": \"Macbook\",",
-							"//             \"monitor_diagonal\": 16,",
-							"//             \"ram\": 32,",
-							"//             \"resolution\": [",
-							"//                 \"Liquid Retina XDR\",",
-							"//                 \"3456x2234\"",
-							"//             ],",
-							"//             \"ssd\": 1000,",
-							"//             \"year\": 2021",
-							"//         },",
-							"//         \"mobile\": {",
-							"//             \"cpu\": \"ARM, SnapDragon 840\",",
-							"//             \"model\": \"Samsung a52\",",
-							"//             \"os\": \"Android\",",
-							"//             \"ram\": 6",
-							"//         }",
-							"//     },",
-							"//     \"user_static_data\": {",
-							"//         \"current_user\": {",
-							"//             \"uid\": 1,",
-							"//             \"uip:\": \"127.0.0.1\"",
-							"//         },",
-							"//         \"ex\": \"1\",",
-							"//         \"spec\": \"QA\",",
-							"//         \"type\": \"padawan\"",
-							"//     }",
-							"// }",
-							"// 6. Ws_1 перенаправляет запрос клиенту"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"user_id\":1}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "WS1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// 1. Проверить всё ли нормально в работе связки вебсервисов.",
+									"",
+									"// Есть 2 ws.",
+									"// WS_1: http://162.55.220.72:5011/user",
+									"// WS_2: http://23.88.52.139:5012/users_team",
+									"",
+									"",
+									"// 2. WS_1 получает запрос от клиента. ",
+									"// POST. ",
+									"// Body: json {\"user_id\":1}",
+									"// Вставьте свой уникальный user_id.",
+									"",
+									"// 3. После получения запроса ws_1 отправляет запрос на ws_2",
+									"// POST. ",
+									"// Body: json {'type': 'padawan', 'spec': 'QA', 'ex': '1', 'current_user': {'uid': YOUR_ID, 'uip:': ‘YOUR_IP’}}",
+									"",
+									"// 4. WS_2 принимает запрос от ws_1, дополняет полученную Json дополнительной информацией.",
+									"// 5. WS_2 отправляет ответ на ws_1 в виде ",
+									"// {",
+									"//     \"user_divices_data\": {",
+									"//         \"comp\": {",
+									"//             \"model\": \"Macbook\",",
+									"//             \"monitor_diagonal\": 16,",
+									"//             \"ram\": 32,",
+									"//             \"resolution\": [",
+									"//                 \"Liquid Retina XDR\",",
+									"//                 \"3456x2234\"",
+									"//             ],",
+									"//             \"ssd\": 1000,",
+									"//             \"year\": 2021",
+									"//         },",
+									"//         \"mobile\": {",
+									"//             \"cpu\": \"ARM, SnapDragon 840\",",
+									"//             \"model\": \"Samsung a52\",",
+									"//             \"os\": \"Android\",",
+									"//             \"ram\": 6",
+									"//         }",
+									"//     },",
+									"//     \"user_static_data\": {",
+									"//         \"current_user\": {",
+									"//             \"uid\": 1,",
+									"//             \"uip:\": \"127.0.0.1\"",
+									"//         },",
+									"//         \"ex\": \"1\",",
+									"//         \"spec\": \"QA\",",
+									"//         \"type\": \"padawan\"",
+									"//     }",
+									"// }",
+									"// 6. Ws_1 перенаправляет запрос клиенту"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
-				},
-				"url": {
-					"raw": "http://162.55.220.72:5011/user",
-					"protocol": "http",
-					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
 					],
-					"port": "5011",
-					"path": [
-						"user"
-					]
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"user_id\":1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://162.55.220.72:5011/user",
+							"protocol": "http",
+							"host": [
+								"162",
+								"55",
+								"220",
+								"72"
+							],
+							"port": "5011",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "WS2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"type\": \"padawan\", \n\"spec\": \"QA\", \n\"ex\": \"1\", \n\"current_user\": {\n    \"uid\": \"1\",\n    \"uip:\": \"0\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://23.88.52.139:5012/users_team",
+							"protocol": "http",
+							"host": [
+								"23",
+								"88",
+								"52",
+								"139"
+							],
+							"port": "5012",
+							"path": [
+								"users_team"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "WS2",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"type\": \"padawan\", \n\"spec\": \"QA\", \n\"ex\": \"1\", \n\"current_user\": {\n    \"uid\": \"1\",\n    \"uip:\": \"0\"\n    }\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "HW2",
+			"item": [
+				{
+					"name": "ws1_jobs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//https://docs.google.com/document/d/16gQ9xbRA5HxlGXnttal-zCgokzCzm8IT99ii8U1BkYo/edit",
+									"",
+									"//проблема на ws1",
+									"",
+									"let json = pm.response.json()",
+									"postman.setEnvironmentVariable(\"json\", JSON.stringify(json));",
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
-				},
-				"url": {
-					"raw": "http://23.88.52.139:5012/users_team",
-					"protocol": "http",
-					"host": [
-						"23",
-						"88",
-						"52",
-						"139"
 					],
-					"port": "5012",
-					"path": [
-						"users_team"
-					]
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "162.55.220.72:5021/jobs",
+							"host": [
+								"162",
+								"55",
+								"220",
+								"72"
+							],
+							"port": "5021",
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ws1_jobs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"job_id\": 4\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "162.55.220.72:5021/jobs",
+							"host": [
+								"162",
+								"55",
+								"220",
+								"72"
+							],
+							"port": "5021",
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ws2_get_job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"job_id\": 4,\n    \"j_data\":  {{json}}\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "23.88.52.139:5022/get_job",
+							"host": [
+								"23",
+								"88",
+								"52",
+								"139"
+							],
+							"port": "5022",
+							"path": [
+								"get_job"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "HW3",
+			"item": []
 		}
 	]
 }
