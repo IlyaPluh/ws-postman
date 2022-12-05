@@ -260,7 +260,199 @@
 		},
 		{
 			"name": "HW3",
-			"item": []
+			"item": [
+				{
+					"name": "jobs_count",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// https://docs.google.com/document/d/1Hz8uzdzMV01mo6a1-EUr6Pdn5CDzaiht2P_-bMyYTVk/edit",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "162.55.220.72:5031/jobs_count",
+							"host": [
+								"162",
+								"55",
+								"220",
+								"72"
+							],
+							"port": "5031",
+							"path": [
+								"jobs_count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_jobs_count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "23.88.52.139:5032/get_jobs_count",
+							"host": [
+								"23",
+								"88",
+								"52",
+								"139"
+							],
+							"port": "5032",
+							"path": [
+								"get_jobs_count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ws1_all_jobs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let json = pm.response.json()",
+									"postman.setEnvironmentVariable(\"json2\", JSON.stringify(json));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "162.55.220.72:5031/all_jobs",
+							"host": [
+								"162",
+								"55",
+								"220",
+								"72"
+							],
+							"port": "5031",
+							"path": [
+								"all_jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ws2_ get_all_jobs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "23.88.52.139:5032/get_all_jobs",
+							"host": [
+								"23",
+								"88",
+								"52",
+								"139"
+							],
+							"port": "5032",
+							"path": [
+								"get_all_jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ws1_add_job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"firm_title\": \"Pluh inc\",\n\"position_title\": \"QA automation\",\n\"skills\": [\"postman\", \"js\", \"client_server\"],\n\"description\": \"Experience with systems, integration, and user acceptance testing.\",\n\"Job Posting\": \"Dec 6 2022\",\n\"Employee Status\": \"Full-time\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "162.55.220.72:5031/add_job",
+							"host": [
+								"162",
+								"55",
+								"220",
+								"72"
+							],
+							"port": "5031",
+							"path": [
+								"add_job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ws2_add_job_item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"firm_title\": \"Pluh inc\",\n\"position_title\": \"QA automation\",\n\"skills\": [\"postman\", \"js\", \"client_server\"],\n\"description\": \"Experience with systems, integration, and user acceptance testing.\",\n\"Job Posting\": \"Nov 22 2022\",\n\"Employee Status\": \"Full-time\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "23.88.52.139:5032/add_job_item",
+							"host": [
+								"23",
+								"88",
+								"52",
+								"139"
+							],
+							"port": "5032",
+							"path": [
+								"add_job_item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
